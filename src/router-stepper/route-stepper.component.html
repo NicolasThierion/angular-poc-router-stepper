@@ -1,0 +1,18 @@
+<ul class="nav nav-tabs">
+  <li
+    *ngFor="let step of steps"
+    (click)="navigateTo(step.path)"
+    class="nav-item"
+    [ngClass]="{ current: rla.isActive, disabled: !step.enabled }"
+  >
+    <a
+      [routerLink]="step.path"
+      [routerLinkActive]="'active'"
+      [ngClass]="{ disabled: !step.enabled }"
+      #rla="routerLinkActive"
+      class="nav-link"
+    >
+      {{ step.title }}
+    </a>
+  </li>
+</ul>
